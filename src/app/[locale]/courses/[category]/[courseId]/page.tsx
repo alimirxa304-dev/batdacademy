@@ -14,7 +14,7 @@ import { getCity } from "@/lib/data/cities";
 import { upcomingCourses } from "@/lib/data/courses";
 import { courseDetails } from "@/lib/data/course-details";
 import { getGroup } from "@/lib/data/category-groups";
-import { IconArrow, IconPin } from "@/components/ui/Icons";
+import { IconArrow, IconCalendar, IconPin } from "@/components/ui/Icons";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -43,29 +43,51 @@ export default async function CourseDetailPage({
     (c) => c.specializationSlug === course.specializationSlug && c.id !== course.id
   );
   const relatedCourses = upcomingCourses.filter((c) => c.id !== course.id).slice(0, 3);
+  const dateFormatted = new Intl.DateTimeFormat(l === "ar" ? "ar-GB" : "en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(course.date));
 
   return (
     <>
       <section className="relative overflow-hidden bg-navy">
-        <div className="absolute inset-0 opacity-25">
-          <Image src={course.image} alt="" fill sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 opacity-40">
+          <Image src={course.image} alt="" fill sizes="100vw" className="object-cover" priority />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/70" />
-        <Container className="relative py-14 sm:py-20">
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/60" />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+            backgroundSize: "34px 34px",
+          }}
+        />
+        <Container className="relative py-16 sm:py-24">
           {spec ? (
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+            <span className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.18em] text-gold">
+              <span className="h-[3px] w-8 bg-gold" />
               {l === "ar" ? spec.ar : spec.en}
             </span>
           ) : null}
-          <h1 className="font-heading mt-3 max-w-3xl text-balance text-3xl leading-tight text-white sm:text-4xl">
+          <h1 className="font-heading mt-4 max-w-3xl text-balance text-4xl leading-[1.05] text-white sm:text-5xl">
             {l === "ar" ? course.ar : course.en}
           </h1>
-          <span className="mt-4 flex items-center gap-1.5 text-sm text-white/70">
-            <IconPin className="h-4 w-4 text-gold" />
-            {city ? (l === "ar" ? city.ar : city.en) : course.citySlug}
-          </span>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/75">
+            <span className="flex items-center gap-1.5">
+              <IconPin className="h-4 w-4 text-gold" />
+              {city ? (l === "ar" ? city.ar : city.en) : course.citySlug}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <IconCalendar className="h-4 w-4 text-gold" />
+              {dateFormatted}
+            </span>
+            <span className="font-heading text-xl text-white">£{course.price.toLocaleString()}</span>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button href={`/${l}/contact`} variant="accent" size="lg">
               {dict.featured.register}
               <IconArrow className="h-4 w-4 rtl:rotate-180" />
@@ -97,15 +119,21 @@ export default async function CourseDetailPage({
         />
       </Container>
 
-      <div className="border-t border-line-navy bg-paper-dim py-14">
+      <div className="border-t border-line-navy bg-paper-dim py-16">
         <Container>
-          <div className="flex items-center justify-between">
-            <h2 className="font-heading text-xl text-navy">{dict.featured.relatedCourses}</h2>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <span className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.18em] text-gold">
+                <span className="h-[3px] w-8 bg-gold" />
+                {dict.nav.courses}
+              </span>
+              <h2 className="font-heading mt-2 text-3xl text-navy">{dict.featured.relatedCourses}</h2>
+            </div>
             <Link href={`/${l}/courses`} className="text-xs font-semibold text-gold hover:underline">
               {dict.specializations.viewAll}
             </Link>
           </div>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {relatedCourses.map((c) => (
               <CourseCard key={c.id} course={c} locale={l} dict={dict} />
             ))}
