@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { isLocale, locales, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { notFound } from "next/navigation";
@@ -6,10 +7,13 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { PrintButton } from "@/components/courses/PrintButton";
 import { CourseDetailTabs } from "@/components/courses/CourseDetailTabs";
+import { CategorySidebar } from "@/components/courses/CategorySidebar";
+import { CourseCard } from "@/components/shared/CourseCard";
 import { getSpecialization } from "@/lib/data/specializations";
 import { getCity } from "@/lib/data/cities";
 import { upcomingCourses } from "@/lib/data/courses";
 import { courseDetails } from "@/lib/data/course-details";
+import { getGroup } from "@/lib/data/category-groups";
 import { IconArrow, IconPin } from "@/components/ui/Icons";
 
 export function generateStaticParams() {
@@ -34,9 +38,11 @@ export default async function CourseDetailPage({
   const l = locale as Locale;
   const spec = getSpecialization(course.specializationSlug);
   const city = getCity(course.citySlug);
+  const group = getGroup(course.specializationSlug);
   const otherDates = upcomingCourses.filter(
     (c) => c.specializationSlug === course.specializationSlug && c.id !== course.id
   );
+  const relatedCourses = upcomingCourses.filter((c) => c.id !== course.id).slice(0, 3);
 
   return (
     <>
@@ -81,9 +87,31 @@ export default async function CourseDetailPage({
         </Container>
       </section>
 
-      <Container className="py-10">
+      <Container className="grid gap-10 py-10 lg:grid-cols-[1fr_260px]">
         <CourseDetailTabs locale={l} dict={dict} course={course} detail={detail} otherDates={otherDates} />
+        <CategorySidebar
+          locale={l}
+          activeSlug={course.specializationSlug}
+          activeGroup={group.key}
+          title={dict.specializations.title}
+        />
       </Container>
+
+      <div className="border-t border-line-navy bg-paper-dim py-14">
+        <Container>
+          <div className="flex items-center justify-between">
+            <h2 className="font-heading text-xl text-navy">{dict.featured.relatedCourses}</h2>
+            <Link href={`/${l}/courses`} className="text-xs font-semibold text-gold hover:underline">
+              {dict.specializations.viewAll}
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedCourses.map((c) => (
+              <CourseCard key={c.id} course={c} locale={l} dict={dict} />
+            ))}
+          </div>
+        </Container>
+      </div>
     </>
   );
 }
