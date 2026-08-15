@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --color-paper: #fbf7ef;
-  --color-paper-dim: #f3ecdc;
+  --color-paper: #ffffff;
+  --color-paper-dim: #f5f6f8;
   --color-surface: #ffffff;
   --color-ink: #16181d;
   --color-ink-soft: #4b5160;
@@ -12,7 +12,7 @@
   --color-gold: #b12e33;
   --color-gold-soft: #f1d6d3;
   --color-burgundy: #7c2734;
-  --color-line: #e3dcc9;
+  --color-line: #e5e7eb;
   --color-line-navy: rgba(22, 37, 84, 0.12);
 
   --font-body: var(--font-plex-arabic);

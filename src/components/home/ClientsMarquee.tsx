@@ -24,6 +24,7 @@ export function ClientsMarquee({ locale, dict }: { locale: Locale; dict: Diction
       </Container>
 
       <div
+        dir="ltr"
         className="relative mt-14 overflow-hidden"
         style={{
           maskImage:
@@ -32,13 +33,13 @@ export function ClientsMarquee({ locale, dict }: { locale: Locale; dict: Diction
             "linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%)",
         }}
       >
-        <div className="flex w-max animate-marquee items-center gap-16 [animation-duration:38s]">
+        <div dir="ltr" className="flex w-max animate-marquee items-center gap-20 [animation-duration:42s]">
           {loop.map((src, i) => (
             <span
               key={i}
-              className="relative h-11 w-32 shrink-0 grayscale transition-all duration-300 hover:scale-110 hover:grayscale-0"
+              className="relative h-20 w-52 shrink-0 transition-transform duration-300 hover:scale-110"
             >
-              <Image src={src} alt="" fill sizes="130px" className="object-contain" />
+              <Image src={src} alt="" fill sizes="208px" className="object-contain" />
             </span>
           ))}
         </div>
