@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "siteName": "British Academy for Training and Development",
+    "siteNameShort": "British Academy"
+  },
+  "topbar": {
+    "phone": "+44 20 3582 7999",
+    "email": "info@batdacademy.org.uk",
+    "requestCourse": "Request a Private Course",
+    "blog": "Blog",
+    "faq": "FAQ"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "aboutOverview": "About the Academy",
+    "vision": "Vision & Mission",
+    "staff": "Our Staff",
+    "services": "Academy Services",
+    "scopeOfWork": "Scope of Work",
+    "advisoryBoard": "Advisory Board",
+    "courses": "Training Courses",
+    "coursesAll": "All Specializations",
+    "diplomas": "Diplomas",
+    "masters": "Masters",
+    "cities": "Cities",
+    "consultations": "Consultations",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch"
+  },
+  "hero": {
+    "eyebrow": "A British Institution — Present in 30+ Countries",
+    "titleLine1": "We Build Leaders",
+    "titleLine2": "Who Shape Impact",
+    "subtitle": "Specialised training courses and postgraduate programmes in management, business, technology and public health, delivered across Europe's finest cities year-round.",
+    "ctaPrimary": "Browse Courses",
+    "ctaSecondary": "Talk to an Advisor",
+    "statCountries": "Countries Worldwide",
+    "statCourses": "Training Specialisms",
+    "statCities": "Training Cities",
+    "statYears": "Years of Experience"
+  },
+  "search": {
+    "title": "Find the Right Course for You",
+    "category": "Category",
+    "specialization": "Specialisation",
+    "city": "Location",
+    "language": "Language",
+    "month": "Month",
+    "year": "Year",
+    "submit": "Search",
+    "allCategories": "All Categories"
+  },
+  "categoryStrip": {
+    "title": "Featured Specialisms"
+  },
+  "specializations": {
+    "title": "Courses by Specialisation",
+    "subtitle": "Over 40 specialisms across management, technology, healthcare and engineering",
+    "viewAll": "View All Specialisations"
+  },
+  "featured": {
+    "title": "Upcoming Courses",
+    "subtitle": "The British Academy stands apart from other providers in the field — a distinctly British-European institution staffed by specialists with deep practical and academic expertise.",
+    "status": "Confirmed",
+    "details": "Course Details",
+    "register": "Register",
+    "viewMore": "View More",
+    "duration": "Duration",
+    "format": "Format",
+    "formatValue": "Classroom",
+    "language": "Language",
+    "languageValue": "Arabic / English",
+    "certificate": "Certificate on completion",
+    "days": "Days",
+    "venue": "Central training venue —",
+    "overview": "Overview",
+    "objectives": "Objectives & Target Audience",
+    "program": "Programme Content",
+    "datesTab": "Course Dates",
+    "feesTab": "Course Fees",
+    "targetGroup": "Target Group",
+    "courseObjectives": "Course Objectives",
+    "print": "Print Course Content",
+    "quickInquiry": "Quick Inquiry",
+    "requestQuote": "Request an In-House Quote",
+    "feeNote": "Note: price varies depending on the selected city.",
+    "perSubscriber": "/ subscriber",
+    "relatedCourses": "Related Courses",
+    "otherDates": "Other Available Dates"
+  },
+  "cities": {
+    "title": "Courses by City",
+    "subtitle": "Our clients' favourite destinations, chosen for their appeal and accessibility",
+    "viewAll": "View All Cities",
+    "coursesIn": "Courses in"
+  },
+  "trust": {
+    "title": "Why the British Academy",
+    "items": [
+      { "title": "Expert Trainers", "body": "Genuine practical and academic experience in every specialism." },
+      { "title": "Recognised Certificate", "body": "An official completion certificate from the Academy on passing the course." },
+      { "title": "Present in 30+ Countries", "body": "Courses held in Europe's and the world's finest cities, year-round." },
+      { "title": "Bespoke Corporate Solutions", "body": "In-house training and consultancy designed around your organisation's needs." }
+    ]
+  },
+  "clients": {
+    "title": "Our Clients & Partners",
+    "subtitle": "Trusted by government institutions and leading organisations worldwide who chose the British Academy to develop their people.",
+    "cta": "Get in Touch"
+  },
+  "stats": {
+    "title": "The Academy in Numbers",
+    "subtitle": "A glimpse of our reach and experience in training and development",
+    "years": "Years of Experience",
+    "countries": "Countries Worldwide",
+    "cities": "Training Cities",
+    "specialisms": "Training Specialisms",
+    "partners": "Partners & Corporate Clients",
+    "languages": "Training Languages"
+  },
+  "consulting": {
+    "eyebrow": "Corporate Services",
+    "title": "Bespoke Training & Advisory Solutions for Your Organisation",
+    "body": "Operating in more than 30 countries, the Academy designs in-house training and consultancy programmes tailored to your team's exact needs.",
+    "cta": "Request a Consultation"
+  },
+  "footer": {
+    "about": "The British Academy for Training and Development is a UK institution specialising in training and development for individuals and organisations across management, business administration, media, public relations, IT and public health.",
+    "aboutTitle": "About Us",
+    "infoTitle": "Information",
+    "citiesTitle": "Cities",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "customerService": "Customer Service",
+    "corporateService": "Corporate Services",
+    "rights": "All rights reserved to the British Academy for Training and Development",
+    "newsletterTitle": "Newsletter",
+    "newsletterBody": "Subscribe to receive our latest courses and offers",
+    "newsletterPlaceholder": "Your email address",
+    "newsletterCta": "Subscribe"
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "backHome": "Back to Home",
+    "send": "Send",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "message": "Your Message",
+    "course": "Course",
+    "city": "City",
+    "selectCity": "Select City",
+    "price": "Price"
+  }
+}
