@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import {
-  IBM_Plex_Sans_Arabic,
-  Markazi_Text,
-  Plus_Jakarta_Sans,
-  Fraunces,
-} from "next/font/google";
+import localFont from "next/font/local";
 import "../globals.css";
 import { isLocale, localeDir, locales, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -13,29 +8,48 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 
-const plexArabic = IBM_Plex_Sans_Arabic({
+const plexArabic = localFont({
   variable: "--font-plex-arabic",
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
+  src: [
+    { path: "../../fonts/plex-arabic-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/plex-arabic-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/plex-arabic-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/plex-arabic-700-normal.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const markazi = Markazi_Text({
+const markazi = localFont({
   variable: "--font-markazi",
-  subsets: ["arabic"],
-  weight: ["500", "600", "700"],
+  src: [
+    { path: "../../fonts/markazi-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/markazi-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/markazi-700-normal.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const jakarta = localFont({
   variable: "--font-jakarta",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  src: [
+    { path: "../../fonts/jakarta-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/jakarta-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/jakarta-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/jakarta-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "../../fonts/jakarta-800-normal.woff2", weight: "800", style: "normal" },
+  ],
 });
 
-const fraunces = Fraunces({
+const fraunces = localFont({
   variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  src: [
+    { path: "../../fonts/fraunces-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/fraunces-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/fraunces-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/fraunces-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "../../fonts/fraunces-400-italic.woff2", weight: "400", style: "italic" },
+    { path: "../../fonts/fraunces-500-italic.woff2", weight: "500", style: "italic" },
+    { path: "../../fonts/fraunces-600-italic.woff2", weight: "600", style: "italic" },
+    { path: "../../fonts/fraunces-700-italic.woff2", weight: "700", style: "italic" },
+  ],
 });
 
 export function generateStaticParams() {
