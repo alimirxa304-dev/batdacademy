@@ -46,6 +46,7 @@ export default async function ContactPage({
             ? "كل من يعمل في الأكاديمية البريطانية جاهز لمساعدتك. صف لنا احتياجك وسنرد عليك خلال يوم عمل واحد كحد أقصى."
             : "Everyone at the British Academy is ready to help. Tell us what you need and we'll respond within one business day."
         }
+        image="/images/photos/1545493916.webp"
       />
 
       <Container className="grid gap-14 py-16 lg:grid-cols-[1fr_1.3fr]">

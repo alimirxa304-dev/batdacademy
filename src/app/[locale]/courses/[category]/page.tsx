@@ -11,6 +11,7 @@ import { CourseTable } from "@/components/courses/CourseTable";
 import { getSpecialization, specializations } from "@/lib/data/specializations";
 import { getGroup } from "@/lib/data/category-groups";
 import { upcomingCourses } from "@/lib/data/courses";
+import { photoForIndex } from "@/lib/data/photo-pool";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -40,6 +41,7 @@ export default async function CategoryPage({
         eyebrow={dict.nav.courses}
         title={l === "ar" ? spec.ar : spec.en}
         subtitle={l === "ar" ? spec.arDescription : spec.enDescription}
+        image={photoForIndex(specializations.findIndex((s) => s.slug === category))}
       />
 
       <Container className="grid gap-10 py-14 lg:grid-cols-[240px_1fr]">

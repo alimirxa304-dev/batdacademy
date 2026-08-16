@@ -14,5 +14,13 @@ export default async function DiplomasPage({
   const dict = await getDictionary(locale as Locale);
   const l = locale as Locale;
 
-  return <ProgramLanding locale={l} dict={dict} program={diplomaProgram} eyebrow={dict.nav.diplomas} />;
+  return (
+    <ProgramLanding
+      locale={l}
+      dict={dict}
+      program={diplomaProgram}
+      eyebrow={dict.nav.diplomas}
+      image="/images/photos/1786450030.webp"
+    />
+  );
 }

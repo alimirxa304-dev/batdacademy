@@ -21,7 +21,12 @@ export default async function CitiesPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.nav.cities} title={dict.cities.title} subtitle={dict.cities.subtitle} />
+      <PageHero
+        eyebrow={dict.nav.cities}
+        title={dict.cities.title}
+        subtitle={dict.cities.subtitle}
+        image="/images/photos/1729692506.jpg"
+      />
 
       <Container className="py-14">
         <div className="flex gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

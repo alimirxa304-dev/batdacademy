@@ -20,7 +20,12 @@ export default async function StaffPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.nav.about} title={dict.nav.staff} subtitle={aboutContent.staff.body[l]} />
+      <PageHero
+        eyebrow={dict.nav.about}
+        title={dict.nav.staff}
+        subtitle={aboutContent.staff.body[l]}
+        image="/images/photos/1786452583.webp"
+      />
       <SubNav items={getAboutSubNav(l, dict)} />
       <Container className="py-16">
         <div className="flex flex-wrap gap-2">

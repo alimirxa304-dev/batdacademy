@@ -14,5 +14,13 @@ export default async function MastersPage({
   const dict = await getDictionary(locale as Locale);
   const l = locale as Locale;
 
-  return <ProgramLanding locale={l} dict={dict} program={mastersProgram} eyebrow={dict.nav.masters} />;
+  return (
+    <ProgramLanding
+      locale={l}
+      dict={dict}
+      program={mastersProgram}
+      eyebrow={dict.nav.masters}
+      image="/images/photos/1581409163.webp"
+    />
+  );
 }

@@ -53,6 +53,7 @@ export default async function ConsultationsPage({
             ? "خدمة استشارية عالية الجودة للقطاعات الحكومية والخاصة، تنقل التجارب الأوروبية الحديثة بما يضمن التطوير المستمر لمؤسستك."
             : "A premium advisory service for public and private organisations, transferring modern European experience to drive continuous institutional development."
         }
+        image="/images/photos/1786454689.webp"
       />
 
       <Container className="grid gap-14 py-16 lg:grid-cols-[1.2fr_1fr]">

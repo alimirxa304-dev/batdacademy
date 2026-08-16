@@ -21,7 +21,12 @@ export default async function CoursesPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.nav.courses} title={dict.specializations.title} subtitle={dict.specializations.subtitle} />
+      <PageHero
+        eyebrow={dict.nav.courses}
+        title={dict.specializations.title}
+        subtitle={dict.specializations.subtitle}
+        image="/images/photos/1786452583.webp"
+      />
 
       <Container className="py-10">
         <CourseFilterBar locale={l} dict={dict} />

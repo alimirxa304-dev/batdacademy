@@ -19,7 +19,12 @@ export default async function ScopeOfWorkPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.nav.about} title={dict.nav.scopeOfWork} subtitle={aboutContent.scopeOfWork.intro[l]} />
+      <PageHero
+        eyebrow={dict.nav.about}
+        title={dict.nav.scopeOfWork}
+        subtitle={aboutContent.scopeOfWork.intro[l]}
+        image="/images/photos/1728908989.png"
+      />
       <SubNav items={getAboutSubNav(l, dict)} />
       <Container className="py-16">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

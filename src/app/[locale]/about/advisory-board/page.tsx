@@ -26,6 +26,7 @@ export default async function AdvisoryBoardPage({
         eyebrow={dict.nav.about}
         title={dict.nav.advisoryBoard}
         subtitle={aboutContent.advisoryBoard.body[l]}
+        image="/images/photos/1581324752.jpg"
       />
       <SubNav items={getAboutSubNav(l, dict)} />
       <Container className="py-16">

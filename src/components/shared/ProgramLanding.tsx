@@ -19,16 +19,18 @@ export function ProgramLanding({
   dict,
   program,
   eyebrow,
+  image,
 }: {
   locale: Locale;
   dict: Dictionary;
   program: Program;
   eyebrow: string;
+  image?: string;
 }) {
   const l = locale;
   return (
     <>
-      <PageHero eyebrow={eyebrow} title={program.title[l]} subtitle={program.intro[l]} />
+      <PageHero eyebrow={eyebrow} title={program.title[l]} subtitle={program.intro[l]} image={image} />
 
       <Container className="py-16">
         <div className="grid gap-5 sm:grid-cols-3">

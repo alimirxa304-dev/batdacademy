@@ -22,7 +22,7 @@ export default async function VisionPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.nav.about} title={dict.nav.vision} />
+      <PageHero eyebrow={dict.nav.about} title={dict.nav.vision} image="/images/photos/1581409163.webp" />
       <SubNav items={subItems} />
       <Container className="grid gap-8 py-16 lg:grid-cols-2">
         <div className="rounded-2xl border border-line-navy bg-surface p-8">

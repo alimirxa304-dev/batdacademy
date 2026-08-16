@@ -30,7 +30,12 @@ export default async function AboutPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.nav.about} title={dict.nav.aboutOverview} subtitle={aboutContent.overview[l]} />
+      <PageHero
+        eyebrow={dict.nav.about}
+        title={dict.nav.aboutOverview}
+        subtitle={aboutContent.overview[l]}
+        image="/images/photos/1786454689.webp"
+      />
       <SubNav items={subItems} />
       <Container className="py-16">
         <div className="grid gap-5 sm:grid-cols-2">
