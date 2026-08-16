@@ -18,37 +18,13 @@ const plexArabic = localFont({
   ],
 });
 
-const markazi = localFont({
-  variable: "--font-markazi",
+const plexSans = localFont({
+  variable: "--font-plex-sans",
   src: [
-    { path: "../../fonts/markazi-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "../../fonts/markazi-600-normal.woff2", weight: "600", style: "normal" },
-    { path: "../../fonts/markazi-700-normal.woff2", weight: "700", style: "normal" },
-  ],
-});
-
-const jakarta = localFont({
-  variable: "--font-jakarta",
-  src: [
-    { path: "../../fonts/jakarta-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "../../fonts/jakarta-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "../../fonts/jakarta-600-normal.woff2", weight: "600", style: "normal" },
-    { path: "../../fonts/jakarta-700-normal.woff2", weight: "700", style: "normal" },
-    { path: "../../fonts/jakarta-800-normal.woff2", weight: "800", style: "normal" },
-  ],
-});
-
-const fraunces = localFont({
-  variable: "--font-fraunces",
-  src: [
-    { path: "../../fonts/fraunces-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "../../fonts/fraunces-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "../../fonts/fraunces-600-normal.woff2", weight: "600", style: "normal" },
-    { path: "../../fonts/fraunces-700-normal.woff2", weight: "700", style: "normal" },
-    { path: "../../fonts/fraunces-400-italic.woff2", weight: "400", style: "italic" },
-    { path: "../../fonts/fraunces-500-italic.woff2", weight: "500", style: "italic" },
-    { path: "../../fonts/fraunces-600-italic.woff2", weight: "600", style: "italic" },
-    { path: "../../fonts/fraunces-700-italic.woff2", weight: "700", style: "italic" },
+    { path: "../../fonts/plex-sans-variable.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/plex-sans-variable.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/plex-sans-variable.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/plex-sans-variable.woff2", weight: "700", style: "normal" },
   ],
 });
 
@@ -88,7 +64,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={localeDir[locale as Locale]}
-      className={`${plexArabic.variable} ${markazi.variable} ${jakarta.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${plexArabic.variable} ${plexSans.variable} h-full antialiased`}
     >
       <body
         className={`min-h-full flex flex-col bg-paper text-ink ${

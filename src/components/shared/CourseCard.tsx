@@ -64,7 +64,7 @@ export function CourseCard({
         <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/0 to-navy/0" />
         <span
           className={cn(
-            "absolute start-4 top-4 rounded-sm px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide",
+            "absolute start-4 top-4 max-w-[70%] truncate rounded-sm px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide",
             toneChip[group.tone]
           )}
         >

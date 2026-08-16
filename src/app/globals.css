@@ -1,27 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --color-paper: #ffffff;
-  --color-paper-dim: #f5f6f8;
+  --color-paper: #fafaf8;
+  --color-paper-dim: #f2f1ed;
   --color-surface: #ffffff;
   --color-ink: #16181d;
   --color-ink-soft: #4b5160;
-  --color-navy: #162554;
-  --color-navy-2: #1e3a8a;
-  --color-navy-tint: #eef1f8;
-  --color-gold: #b12e33;
-  --color-gold-soft: #f1d6d3;
+  --color-navy: #0f2144;
+  --color-navy-2: #1a3566;
+  --color-navy-tint: #eef1f6;
+  --color-gold: #a9791f;
+  --color-gold-soft: #f0e4c8;
   --color-burgundy: #7c2734;
-  --color-line: #e5e7eb;
-  --color-line-navy: rgba(22, 37, 84, 0.12);
+  --color-line: #e2e1db;
+  --color-line-navy: rgba(15, 33, 68, 0.14);
 
   --font-body: var(--font-plex-arabic);
-  --font-display: var(--font-markazi);
 }
 
 .font-en {
-  --font-body: var(--font-jakarta);
-  --font-display: var(--font-fraunces);
+  --font-body: var(--font-plex-sans);
 }
 
 @theme inline {
@@ -40,17 +38,17 @@
   --color-line-navy: var(--color-line-navy);
 
   --font-sans: var(--font-body);
-  --font-heading: var(--font-display);
+  --font-heading: var(--font-body);
 
-  --animate-marquee: marquee 34s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
 
-  --radius-xs: 4px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 8px;
-  --radius-xl: 8px;
-  --radius-2xl: 12px;
-  --radius-3xl: 16px;
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius-3xl: 2px;
 }
 
 @keyframes marquee {
@@ -76,7 +74,7 @@ body {
 }
 
 .font-heading {
-  font-family: var(--font-display), ui-serif, serif;
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {
@@ -85,7 +83,7 @@ body {
 }
 
 .bg-grain {
-  background-image: radial-gradient(circle at 1px 1px, rgba(22, 37, 84, 0.06) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(15, 33, 68, 0.06) 1px, transparent 0);
   background-size: 22px 22px;
 }
 

@@ -119,6 +119,30 @@ export default async function CourseDetailPage({
         />
       </Container>
 
+      <section className="border-t border-line-navy bg-navy py-14">
+        <Container className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-start">
+          <div>
+            <h2 className="font-heading text-2xl text-white sm:text-3xl">
+              {l === "ar" ? "جاهز للتسجيل في هذه الدورة؟" : "Ready to register for this course?"}
+            </h2>
+            <p className="mt-2 max-w-xl text-sm text-white/70">
+              {l === "ar"
+                ? "تواصل مع فريقنا للتسجيل أو للاستفسار عن مواعيد وأماكن إضافية."
+                : "Contact our team to enrol, or ask about additional dates and locations."}
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Button href={`/${l}/contact`} variant="accent" size="lg">
+              {dict.featured.register}
+              <IconArrow className="h-4 w-4 rtl:rotate-180" />
+            </Button>
+            <Button href={`/${l}/consultations`} variant="outline-paper" size="lg">
+              {dict.featured.requestQuote}
+            </Button>
+          </div>
+        </Container>
+      </section>
+
       <div className="border-t border-line-navy bg-paper-dim py-16">
         <Container>
           <div className="flex flex-wrap items-end justify-between gap-4">

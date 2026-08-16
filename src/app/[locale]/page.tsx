@@ -6,10 +6,8 @@ import { CourseSearch } from "@/components/home/CourseSearch";
 import { QuickCategoryStrip } from "@/components/home/QuickCategoryStrip";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { SpecializationGrid } from "@/components/home/SpecializationGrid";
-import { QuickLinksGrid } from "@/components/home/QuickLinksGrid";
 import { FeaturedCourses } from "@/components/home/FeaturedCourses";
 import { CityShowcase } from "@/components/home/CityShowcase";
-import { StatsNumbers } from "@/components/home/StatsNumbers";
 import { ClientsMarquee } from "@/components/home/ClientsMarquee";
 import { CourseRequestSection } from "@/components/home/CourseRequestSection";
 import { ConsultingCta } from "@/components/home/ConsultingCta";
@@ -31,12 +29,10 @@ export default async function HomePage({
       <div className="pt-10 sm:pt-14">
         <QuickCategoryStrip locale={l} dict={dict} />
       </div>
-      <TrustStrip locale={l} dict={dict} />
       <SpecializationGrid locale={l} dict={dict} />
-      <QuickLinksGrid locale={l} dict={dict} />
       <FeaturedCourses locale={l} dict={dict} />
+      <TrustStrip locale={l} dict={dict} />
       <CityShowcase locale={l} dict={dict} />
-      <StatsNumbers locale={l} dict={dict} />
       <ClientsMarquee locale={l} dict={dict} />
       <CourseRequestSection locale={l} dict={dict} />
       <ConsultingCta locale={l} dict={dict} />

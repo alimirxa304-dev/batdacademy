@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import type { Locale } from "@/lib/i18n/config";
@@ -8,7 +9,16 @@ import type { Course } from "@/lib/data/courses";
 import type { CourseDetail } from "@/lib/data/course-details";
 import { getFeeTiers } from "@/lib/data/course-details";
 import { cities } from "@/lib/data/cities";
-import { IconArrow, IconBadgeCheck, IconBuilding, IconCalendar, IconClock, IconGlobe } from "@/components/ui/Icons";
+import { faqGroups } from "@/lib/data/faq";
+import {
+  IconArrow,
+  IconBadgeCheck,
+  IconBuilding,
+  IconCalendar,
+  IconChevronDown,
+  IconClock,
+  IconGlobe,
+} from "@/components/ui/Icons";
 import { Button } from "@/components/ui/Button";
 
 const fadeUp = {
@@ -58,7 +68,12 @@ export function CourseDetailTabs({
     { key: "objectives", label: dict.featured.objectives },
     { key: "program", label: dict.featured.program },
     { key: "dates-fees", label: `${dict.featured.datesTab} & ${dict.featured.feesTab}` },
+    { key: "faq", label: dict.topbar.faq },
   ] as const;
+  const [openFaq, setOpenFaq] = useState<string | null>(null);
+  const relevantFaqGroups = faqGroups.filter((g) =>
+    ["Registration & Enrolment", "Fees & Payment"].includes(g.title.en)
+  );
   const fees = getFeeTiers(course.price);
   const facts = [
     { icon: IconClock, label: `${course.durationDays} ${dict.featured.days}`, tone: "navy" as const },
@@ -264,6 +279,48 @@ export function CourseDetailTabs({
               ))}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section id="faq" className="scroll-mt-28 border-t border-line py-10">
+        <Reveal>
+          <Eyebrow>{dict.topbar.faq}</Eyebrow>
+          <h2 className="font-heading mt-2 text-3xl text-navy">{dict.topbar.faq}</h2>
+        </Reveal>
+
+        <div className="mt-7 flex flex-col gap-8">
+          {relevantFaqGroups.map((group, gi) => (
+            <div key={gi}>
+              <h3 className="text-sm font-bold uppercase tracking-wide text-ink-soft">
+                {group.title[locale]}
+              </h3>
+              <div className="mt-3 flex flex-col gap-2.5">
+                {group.items.map((item, ii) => {
+                  const key = `${gi}-${ii}`;
+                  const isOpen = openFaq === key;
+                  return (
+                    <div key={key} className="overflow-hidden rounded-sm border-2 border-line-navy bg-surface">
+                      <button
+                        type="button"
+                        onClick={() => setOpenFaq(isOpen ? null : key)}
+                        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-start"
+                      >
+                        <span className="text-[14.5px] font-medium text-navy">{item.q[locale]}</span>
+                        <IconChevronDown
+                          className={`h-4 w-4 shrink-0 text-gold transition-transform ${isOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                      {isOpen ? (
+                        <div className="border-t border-line px-5 pb-4 pt-3 text-[13.5px] leading-relaxed text-ink-soft">
+                          {item.a[locale]}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
