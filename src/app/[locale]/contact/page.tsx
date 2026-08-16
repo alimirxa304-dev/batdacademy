@@ -50,7 +50,7 @@ export default async function ContactPage({
       />
 
       <Container className="grid gap-14 py-16 lg:grid-cols-[1fr_1.3fr]">
-        <div className="flex flex-col gap-4">
+        <div className="flex min-w-0 flex-col gap-4">
           {details.map((d, i) => {
             const Icon = d.icon;
             const content = (
@@ -87,7 +87,7 @@ export default async function ContactPage({
           </div>
         </div>
 
-        <div className="rounded-2xl border border-line-navy bg-surface p-7">
+        <div className="min-w-0 rounded-2xl border border-line-navy bg-surface p-7">
           <h3 className="font-heading text-lg text-navy">
             {l === "ar" ? "أرسل لنا رسالة" : "Send Us a Message"}
           </h3>

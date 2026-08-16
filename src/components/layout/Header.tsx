@@ -31,23 +31,26 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="hidden bg-navy text-white/80 lg:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-2 text-xs">
-          <div className="flex items-center gap-5">
+      <div className="bg-navy text-white/80">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-2 text-xs sm:px-8">
+          <div className="flex items-center gap-3 sm:gap-5">
             <a href={`tel:${dict.topbar.phone}`} className="flex items-center gap-1.5 hover:text-white">
-              <IconPhone className="h-3.5 w-3.5" />
-              {dict.topbar.phone}
+              <IconPhone className="h-3.5 w-3.5 shrink-0" />
+              <span className="hidden sm:inline">{dict.topbar.phone}</span>
             </a>
-            <a href={`mailto:${dict.topbar.email}`} className="flex items-center gap-1.5 hover:text-white">
+            <a
+              href={`mailto:${dict.topbar.email}`}
+              className="hidden items-center gap-1.5 hover:text-white sm:flex"
+            >
               <IconMail className="h-3.5 w-3.5" />
               {dict.topbar.email}
             </a>
           </div>
-          <div className="flex items-center gap-5">
-            <Link href={withLocale("/consultations")} className="hover:text-white">
+          <div className="flex items-center gap-3 sm:gap-5">
+            <Link href={withLocale("/consultations")} className="hidden hover:text-white sm:inline">
               {dict.topbar.requestCourse}
             </Link>
-            <Link href={withLocale("/faq")} className="hover:text-white">
+            <Link href={withLocale("/faq")} className="hidden hover:text-white lg:inline">
               {dict.topbar.faq}
             </Link>
             <LanguageSwitcher locale={locale} variant="light" />

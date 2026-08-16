@@ -57,7 +57,7 @@ export default async function ConsultationsPage({
       />
 
       <Container className="grid gap-14 py-16 lg:grid-cols-[1.2fr_1fr]">
-        <div className="flex flex-col gap-6">
+        <div className="flex min-w-0 flex-col gap-6">
           {services.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -72,7 +72,7 @@ export default async function ConsultationsPage({
           })}
         </div>
 
-        <div className="h-fit rounded-2xl border border-line-navy bg-surface p-7">
+        <div className="h-fit min-w-0 rounded-2xl border border-line-navy bg-surface p-7">
           <h3 className="font-heading text-lg text-navy">{dict.consulting.cta}</h3>
           <p className="mt-2 text-sm text-ink-soft">{dict.consulting.body}</p>
           <div className="mt-6">

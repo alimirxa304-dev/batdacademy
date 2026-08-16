@@ -47,7 +47,7 @@ export default async function CategoryPage({
       <Container className="grid gap-10 py-14 lg:grid-cols-[240px_1fr]">
         <CategorySidebar locale={l} activeSlug={category} activeGroup={group.key} title={dict.specializations.title} />
 
-        <div>
+        <div className="min-w-0">
           {courses.length > 0 ? (
             <>
               <h2 className="font-heading text-xl text-navy">{dict.featured.title}</h2>

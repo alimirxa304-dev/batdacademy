@@ -110,7 +110,9 @@ export default async function CourseDetailPage({
       </section>
 
       <Container className="grid gap-10 py-10 lg:grid-cols-[1fr_260px]">
-        <CourseDetailTabs locale={l} dict={dict} course={course} detail={detail} otherDates={otherDates} />
+        <div className="min-w-0">
+          <CourseDetailTabs locale={l} dict={dict} course={course} detail={detail} otherDates={otherDates} />
+        </div>
         <CategorySidebar
           locale={l}
           activeSlug={course.specializationSlug}

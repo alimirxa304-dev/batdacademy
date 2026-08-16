@@ -53,7 +53,7 @@ export default async function CoursesPage({
           </div>
         </aside>
 
-        <div>
+        <div className="min-w-0">
           <h2 className="font-heading text-xl text-navy">{dict.featured.title}</h2>
           <div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {upcomingCourses.map((course) => (

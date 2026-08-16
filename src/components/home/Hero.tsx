@@ -1,11 +1,30 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "motion/react";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { IconArrow } from "@/components/ui/Icons";
 
+const slides = [
+  "/images/hero/slider-1.webp",
+  "/images/photos/1786452583.webp",
+  "/images/photos/1581409163.webp",
+];
+
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % slides.length);
+    }, 6500);
+    return () => clearInterval(id);
+  }, []);
+
   const stats = [
     { value: "15+", label: dict.hero.statYears },
     { value: "30+", label: dict.hero.statCountries },
@@ -16,14 +35,25 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
     <section className="relative overflow-hidden bg-navy">
       <div className="absolute inset-0">
-        <Image
-          src="/images/hero/slider-1.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-        />
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={active}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.1, ease: "easeInOut" }}
+          >
+            <Image
+              src={slides[active]}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority={active === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/55 rtl:bg-gradient-to-l" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/10 to-navy/25" />
       </div>
@@ -63,6 +93,20 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-12 flex items-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Slide ${i + 1}`}
+              onClick={() => setActive(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === active ? "w-8 bg-gold" : "w-4 bg-white/30 hover:bg-white/50"
+              }`}
+            />
+          ))}
         </div>
       </Container>
 
