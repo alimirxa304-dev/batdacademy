@@ -6,14 +6,15 @@ import { motion } from "motion/react";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { Container } from "@/components/ui/Container";
+import { photoForIndex } from "@/lib/data/photo-pool";
 
 const items = [
-  { icon: "engineering", slug: "engineering-management", ar: "الهندسة", en: "Engineering" },
-  { icon: "safety", slug: "safety-security", ar: "الأمن والسلامة", en: "Safety & Security" },
-  { icon: "accounting", slug: "accounting", ar: "المحاسبة", en: "Accounting" },
-  { icon: "media", slug: "press-media", ar: "الصحافة والإعلام", en: "Press & Media" },
-  { icon: "healthcare", slug: "healthcare-hospital-management", ar: "إدارة المستشفيات", en: "Hospital Management" },
-  { icon: "maintenance", slug: "maintenance-operations", ar: "الصيانة", en: "Maintenance" },
+  { slug: "engineering-management", ar: "الهندسة", en: "Engineering" },
+  { slug: "safety-security", ar: "الأمن والسلامة", en: "Safety & Security" },
+  { slug: "accounting", ar: "المحاسبة", en: "Accounting" },
+  { slug: "press-media", ar: "الصحافة والإعلام", en: "Press & Media" },
+  { slug: "healthcare-hospital-management", ar: "إدارة المستشفيات", en: "Hospital Management" },
+  { slug: "maintenance-operations", ar: "الصيانة", en: "Maintenance" },
 ];
 
 const container = {
@@ -53,7 +54,7 @@ export function QuickCategoryStrip({ locale, dict }: { locale: Locale; dict: Dic
           viewport={{ once: true, amount: 0.4 }}
           className="grid grid-cols-3 gap-x-4 gap-y-10 py-10 sm:grid-cols-6"
         >
-          {items.map((it) => (
+          {items.map((it, i) => (
             <motion.div key={it.slug} variants={item}>
               <Link
                 href={`/${locale}/courses/${it.slug}`}
@@ -62,16 +63,16 @@ export function QuickCategoryStrip({ locale, dict }: { locale: Locale; dict: Dic
                 <motion.span
                   whileHover={{ y: -4 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  className="relative flex h-[72px] w-[72px] items-center justify-center rounded-full border-2 border-white/15 bg-white/5 transition-colors duration-300 group-hover:border-gold group-hover:bg-gold"
+                  className="relative flex h-[72px] w-[72px] items-center justify-center overflow-hidden rounded-full border-2 border-white/15 transition-colors duration-300 group-hover:border-gold"
                 >
-                  <span className="absolute inset-[-6px] rounded-full border border-white/0 transition-all duration-300 group-hover:border-white/20" />
                   <Image
-                    src={`/images/icons/${it.icon}.webp`}
+                    src={photoForIndex(i)}
                     alt=""
-                    width={30}
-                    height={30}
-                    className="h-[30px] w-[30px] object-contain transition-transform duration-300 group-hover:scale-110 group-hover:[filter:brightness(0)]"
+                    fill
+                    sizes="72px"
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
                   />
+                  <span className="absolute inset-0 bg-navy/45 transition-colors duration-300 group-hover:bg-navy/20" />
                 </motion.span>
                 <span className="text-[13px] font-semibold text-white/75 transition-colors group-hover:text-white">
                   {locale === "ar" ? it.ar : it.en}

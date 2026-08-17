@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { specializations } from "@/lib/data/specializations";
-import { categoryIconSrc } from "@/lib/data/icon-map";
+import { photoForIndex } from "@/lib/data/photo-pool";
 import { getGroup } from "@/lib/data/category-groups";
 import { IconArrow } from "@/components/ui/Icons";
 import { cn } from "@/lib/utils";
@@ -50,18 +50,8 @@ export function SpecializationGrid({ locale, dict }: { locale: Locale; dict: Dic
                 )}
               >
                 <span className={cn("absolute inset-y-0 start-0 w-[3px]", toneBar[group.tone])} />
-                <span className="ms-3 flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-navy-tint">
-                  {spec.icon && categoryIconSrc[spec.icon] ? (
-                    <Image
-                      src={categoryIconSrc[spec.icon]}
-                      alt=""
-                      width={30}
-                      height={30}
-                      className="h-[30px] w-[30px] object-contain"
-                    />
-                  ) : (
-                    <span className="font-heading text-lg text-navy">{name.charAt(0)}</span>
-                  )}
+                <span className="relative ms-3 h-14 w-14 shrink-0 overflow-hidden rounded-sm">
+                  <Image src={photoForIndex(i)} alt="" fill sizes="56px" className="object-cover" />
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-[15px] font-bold leading-snug text-navy">{name}</span>
