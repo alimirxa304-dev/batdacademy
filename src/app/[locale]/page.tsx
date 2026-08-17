@@ -9,6 +9,7 @@ import { SpecializationGrid } from "@/components/home/SpecializationGrid";
 import { FeaturedCourses } from "@/components/home/FeaturedCourses";
 import { CityShowcase } from "@/components/home/CityShowcase";
 import { ClientsMarquee } from "@/components/home/ClientsMarquee";
+import { Testimonials } from "@/components/home/Testimonials";
 import { CourseRequestSection } from "@/components/home/CourseRequestSection";
 import { ConsultingCta } from "@/components/home/ConsultingCta";
 
@@ -34,6 +35,7 @@ export default async function HomePage({
       <TrustStrip locale={l} dict={dict} />
       <CityShowcase locale={l} dict={dict} />
       <ClientsMarquee locale={l} dict={dict} />
+      <Testimonials locale={l} dict={dict} />
       <CourseRequestSection locale={l} dict={dict} />
       <ConsultingCta locale={l} dict={dict} />
     </>
