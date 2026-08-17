@@ -33,16 +33,16 @@ export function ProgramLanding({
       <PageHero eyebrow={eyebrow} title={program.title[l]} subtitle={program.intro[l]} image={image} />
 
       <Container className="py-16">
-        <div className="grid gap-5 sm:grid-cols-3">
+        <div className="grid divide-y divide-line border-y border-line sm:grid-cols-3 sm:divide-x sm:divide-y-0 rtl:sm:divide-x-reverse">
           {program.highlights.map((h, i) => {
             const Icon = highlightIcons[i % highlightIcons.length];
             return (
-              <div key={i} className="rounded-2xl border border-line-navy bg-surface p-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-soft/50 text-navy">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="font-heading mt-4 text-base text-navy">{h.title[l]}</h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-ink-soft">{h.body[l]}</p>
+              <div key={i} className="flex gap-4 py-7 sm:flex-col sm:gap-0 sm:px-8 sm:py-8 sm:first:ps-0 sm:last:pe-0">
+                <Icon className="h-6 w-6 shrink-0 text-gold" />
+                <div className="sm:mt-4">
+                  <h3 className="font-heading text-base text-navy">{h.title[l]}</h3>
+                  <p className="mt-2 text-[13.5px] leading-relaxed text-ink-soft">{h.body[l]}</p>
+                </div>
               </div>
             );
           })}

@@ -6,9 +6,6 @@ import { PageHero } from "@/components/shared/PageHero";
 import { SubNav } from "@/components/shared/SubNav";
 import { aboutContent } from "@/lib/data/about";
 import { getAboutSubNav } from "@/lib/nav-helpers";
-import { IconBadgeCheck, IconGlobe, IconShield } from "@/components/ui/Icons";
-
-const pillarIcons = [IconShield, IconBadgeCheck, IconGlobe];
 
 export default async function AdvisoryBoardPage({
   params,
@@ -30,18 +27,13 @@ export default async function AdvisoryBoardPage({
       />
       <SubNav items={getAboutSubNav(l, dict)} />
       <Container className="py-16">
-        <div className="grid gap-5 sm:grid-cols-3">
-          {aboutContent.advisoryBoard.pillars.map((p, i) => {
-            const Icon = pillarIcons[i % pillarIcons.length];
-            return (
-              <div key={i} className="rounded-2xl border border-line-navy bg-surface p-6 text-center">
-                <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gold-soft/50 text-navy">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="font-heading mt-4 text-base text-navy">{p[l]}</h3>
-              </div>
-            );
-          })}
+        <div className="grid divide-y divide-line lg:grid-cols-3 lg:divide-x lg:divide-y-0 rtl:lg:divide-x-reverse">
+          {aboutContent.advisoryBoard.pillars.map((p, i) => (
+            <div key={i} className="flex flex-col gap-3 py-8 first:pt-0 last:pb-0 lg:px-8 lg:py-0 lg:first:ps-0 lg:last:pe-0">
+              <span className="font-heading text-5xl text-gold/40">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="font-heading text-2xl leading-snug text-navy">{p[l]}</h3>
+            </div>
+          ))}
         </div>
       </Container>
     </>

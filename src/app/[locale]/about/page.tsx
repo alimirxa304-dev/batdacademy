@@ -38,18 +38,18 @@ export default async function AboutPage({
       />
       <SubNav items={subItems} />
       <Container className="py-16">
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="flex flex-col border-t border-line-navy">
           {cards.map((card) => (
             <Link
               key={card.href}
               href={card.href}
-              className="group flex flex-col rounded-2xl border border-line-navy bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-lg hover:shadow-navy/5"
+              className="group grid grid-cols-1 items-center gap-2 border-b border-line-navy py-7 transition-colors hover:bg-navy-tint/40 sm:grid-cols-[1fr_2fr_auto] sm:gap-8 sm:py-8"
             >
-              <h3 className="font-heading text-xl text-navy">{card.title}</h3>
-              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-ink-soft">{card.body}</p>
-              <span className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-gold">
+              <h3 className="font-heading text-2xl text-navy">{card.title}</h3>
+              <p className="line-clamp-2 max-w-xl text-sm leading-relaxed text-ink-soft">{card.body}</p>
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-gold">
                 {dict.common.learnMore}
-                <IconArrow className="h-3.5 w-3.5 rtl:rotate-180" />
+                <IconArrow className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
               </span>
             </Link>
           ))}

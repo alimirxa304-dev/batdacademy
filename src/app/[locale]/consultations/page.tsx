@@ -57,16 +57,22 @@ export default async function ConsultationsPage({
       />
 
       <Container className="grid gap-14 py-16 lg:grid-cols-[1.2fr_1fr]">
-        <div className="flex min-w-0 flex-col gap-6">
+        <div className="min-w-0">
           {services.map((s, i) => {
             const Icon = s.icon;
+            const isLast = i === services.length - 1;
             return (
-              <div key={i} className="rounded-2xl border border-line-navy bg-surface p-7">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-soft/50 text-navy">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="font-heading mt-4 text-lg text-navy">{s.title[l]}</h3>
-                <p className="mt-2.5 text-[14.5px] leading-relaxed text-ink-soft">{s.body[l]}</p>
+              <div key={i} className="relative flex gap-5 ps-1">
+                <div className="flex flex-col items-center">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-navy text-gold">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  {!isLast ? <span className="mt-1 w-px flex-1 bg-line-navy" /> : null}
+                </div>
+                <div className={isLast ? "pb-0" : "pb-9"}>
+                  <h3 className="font-heading text-lg text-navy">{s.title[l]}</h3>
+                  <p className="mt-2.5 text-[14.5px] leading-relaxed text-ink-soft">{s.body[l]}</p>
+                </div>
               </div>
             );
           })}

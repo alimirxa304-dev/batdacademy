@@ -63,6 +63,7 @@ export const aboutContent = {
           ar: "فرص توظيف مع شركات مالية عالمية وبنوك وشركات متعددة الجنسيات، بمشاركة في التحليل المالي والتدقيق وإعداد الميزانيات في مراكز مثل لندن ونيويورك.",
           en: "Placements with global financial firms, banks and multinationals — financial analysis, audit and budgeting experience in hubs like London and New York.",
         },
+        cities: { ar: ["لندن", "نيويورك"], en: ["London", "New York"] },
       },
       {
         title: { ar: "التسويق والإعلام الرقمي", en: "Marketing & Digital Media" },
@@ -70,6 +71,7 @@ export const aboutContent = {
           ar: "تدريب ميداني في وكالات الإعلانات والشركات الإعلامية وشركات التسويق الرقمي في مدن مثل أمستردام وبرلين ولوس أنجلوس.",
           en: "Field training at advertising agencies, media houses and digital marketing firms in cities such as Amsterdam, Berlin and Los Angeles.",
         },
+        cities: { ar: ["أمستردام", "برلين", "لوس أنجلوس"], en: ["Amsterdam", "Berlin", "Los Angeles"] },
       },
       {
         title: { ar: "التكنولوجيا وتقنية المعلومات", en: "Technology & IT" },
@@ -77,6 +79,7 @@ export const aboutContent = {
           ar: "تدريب مع شركات التكنولوجيا والشركات الناشئة في تطوير البرمجيات والأمن السيبراني وتحليل البيانات، بمواقع مثل سان فرانسيسكو ودبلن وبرلين.",
           en: "Placements with tech companies and startups covering software development, cybersecurity and data analysis, in sites like San Francisco, Dublin and Berlin.",
         },
+        cities: { ar: ["سان فرانسيسكو", "دبلن", "برلين"], en: ["San Francisco", "Dublin", "Berlin"] },
       },
       {
         title: { ar: "السياحة وإدارة الضيافة", en: "Tourism & Hospitality" },
@@ -84,6 +87,7 @@ export const aboutContent = {
           ar: "خبرة في خدمة العملاء وإدارة العمليات وتنسيق الفعاليات مع الفنادق ووكالات السفر في باريس وروما ونيويورك.",
           en: "Customer service, operations and event-coordination experience with hotels and travel agencies in Paris, Rome and New York.",
         },
+        cities: { ar: ["باريس", "روما", "نيويورك"], en: ["Paris", "Rome", "New York"] },
       },
       {
         title: { ar: "الموارد البشرية وتطوير المنظمات", en: "HR & Organisational Development" },
@@ -91,6 +95,7 @@ export const aboutContent = {
           ar: "عمل مع أقسام الموارد البشرية في الشركات متعددة الجنسيات، في مدن مثل لندن وشيكاغو وبروكسل.",
           en: "Work with HR departments at multinational companies in cities such as London, Chicago and Brussels.",
         },
+        cities: { ar: ["لندن", "شيكاغو", "بروكسل"], en: ["London", "Chicago", "Brussels"] },
       },
       {
         title: { ar: "الهندسة وإدارة المشاريع", en: "Engineering & Project Management" },
@@ -98,6 +103,7 @@ export const aboutContent = {
           ar: "مشاريع بنية تحتية وطاقة حقيقية مع شركات البناء والاستشارات الهندسية، في ميونخ وهيوستن ولندن.",
           en: "Real infrastructure and energy projects with construction and engineering-consultancy firms in Munich, Houston and London.",
         },
+        cities: { ar: ["ميونخ", "هيوستن", "لندن"], en: ["Munich", "Houston", "London"] },
       },
     ],
   },

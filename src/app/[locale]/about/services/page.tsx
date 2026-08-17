@@ -6,7 +6,6 @@ import { PageHero } from "@/components/shared/PageHero";
 import { SubNav } from "@/components/shared/SubNav";
 import { aboutContent } from "@/lib/data/about";
 import { getAboutSubNav } from "@/lib/nav-helpers";
-import { IconBadgeCheck } from "@/components/ui/Icons";
 
 export default async function ServicesPage({
   params,
@@ -28,13 +27,16 @@ export default async function ServicesPage({
       />
       <SubNav items={getAboutSubNav(l, dict)} />
       <Container className="py-16">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="flex max-w-3xl flex-col">
           {aboutContent.services.items.map((item, i) => (
-            <div key={i} className="flex gap-4 rounded-2xl border border-line-navy bg-surface p-6">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-tint text-navy">
-                <IconBadgeCheck className="h-5 w-5" />
+            <div
+              key={i}
+              className="grid grid-cols-[3.5rem_1fr] gap-4 border-b border-line py-7 first:pt-0 last:border-0 sm:grid-cols-[5rem_1fr] sm:gap-8"
+            >
+              <span className="font-heading text-3xl leading-none text-gold/50 sm:text-4xl">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-[14.5px] leading-relaxed text-ink-soft">{item[l]}</p>
+              <p className="text-[15px] leading-relaxed text-ink-soft">{item[l]}</p>
             </div>
           ))}
         </div>
