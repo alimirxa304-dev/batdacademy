@@ -26,6 +26,7 @@ export function Button({
   size = "md",
   className,
   children,
+  onClick,
   ...props
 }: {
   href?: string;
@@ -33,17 +34,18 @@ export function Button({
   size?: Size;
   className?: string;
   children: React.ReactNode;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  onClick?: () => void;
+} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onClick">) {
   const classes = cn(base, variants[variant], sizes[size], className);
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
       </Link>
     );
   }
   return (
-    <button className={classes} {...props}>
+    <button className={classes} onClick={onClick} {...props}>
       {children}
     </button>
   );

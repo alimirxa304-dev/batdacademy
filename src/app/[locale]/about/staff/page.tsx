@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { isLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { notFound } from "next/navigation";
@@ -35,8 +36,13 @@ export default async function StaffPage({
             </Badge>
           ))}
         </div>
-        <div className="mt-8 max-w-3xl rounded-2xl border border-line-navy bg-surface p-8">
-          <p className="text-[15px] leading-relaxed text-ink-soft">{aboutContent.staff.extra[l]}</p>
+        <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-md border-2 border-navy">
+            <Image src="/images/photos/1786450030.webp" alt="" fill sizes="(min-width: 1024px) 480px, 90vw" className="object-cover" />
+          </div>
+          <div className="rounded-md border-2 border-line-navy bg-surface p-8">
+            <p className="text-[15px] leading-relaxed text-ink-soft">{aboutContent.staff.extra[l]}</p>
+          </div>
         </div>
       </Container>
     </>

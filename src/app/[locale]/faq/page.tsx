@@ -25,6 +25,7 @@ export default async function FaqPage({
             ? "إجابات سريعة على أكثر الأسئلة شيوعاً حول برامجنا التدريبية والتسجيل والدفع."
             : "Quick answers to the most common questions about our programmes, registration and payment."
         }
+        image="/images/photos/1581409163.webp"
       />
       <Container className="max-w-3xl py-16">
         <FaqAccordion locale={l} />

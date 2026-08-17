@@ -16,6 +16,7 @@ import {
   IconMail,
   IconMenu,
   IconPhone,
+  IconWhatsApp,
 } from "@/components/ui/Icons";
 
 export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
@@ -176,12 +177,18 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <Link
               href={withLocale("/contact")}
-              className="hidden rounded-sm bg-navy px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors hover:bg-navy-2 lg:inline-flex"
+              className="hidden rounded-sm border-2 border-navy px-4 py-2.5 text-[13.5px] font-semibold text-navy transition-colors hover:bg-navy hover:text-white lg:inline-flex"
             >
               {dict.nav.getInTouch}
+            </Link>
+            <Link
+              href={withLocale("/courses")}
+              className="hidden rounded-sm bg-gold px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors hover:bg-gold/90 sm:inline-flex"
+            >
+              {dict.nav.applyNow}
             </Link>
             <button
               type="button"
@@ -213,6 +220,38 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
               >
                 <IconClose className="h-5 w-5" />
               </button>
+            </div>
+
+            <div className="mt-6 flex gap-2.5">
+              <Link
+                href={withLocale("/courses")}
+                onClick={() => setMobileOpen(false)}
+                className="flex-1 rounded-sm bg-gold px-4 py-3 text-center text-sm font-bold text-white"
+              >
+                {dict.nav.applyNow}
+              </Link>
+              <a
+                href="https://wa.me/442035827999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-1 items-center justify-center gap-2 rounded-sm bg-[#25D366] px-4 py-3 text-sm font-bold text-white"
+              >
+                <IconWhatsApp className="h-4 w-4" />
+                WhatsApp
+              </a>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {featuredSpecializations.slice(0, 6).map((s) => (
+                <Link
+                  key={s.slug}
+                  href={withLocale(`/courses/${s.slug}`)}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-sm border border-line-navy px-3 py-1.5 text-xs font-medium text-navy"
+                >
+                  {locale === "ar" ? s.ar : s.en}
+                </Link>
+              ))}
             </div>
 
             <div className="mt-6 flex flex-col gap-1">

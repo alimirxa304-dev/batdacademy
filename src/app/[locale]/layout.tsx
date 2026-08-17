@@ -7,6 +7,7 @@ import { getDictionary } from "@/lib/i18n/dictionaries";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { AnnouncementPopup } from "@/components/layout/AnnouncementPopup";
 
 const plexArabic = localFont({
   variable: "--font-plex-arabic",
@@ -75,6 +76,7 @@ export default async function LocaleLayout({
         <main className="flex-1">{children}</main>
         <Footer locale={locale as Locale} dict={dict} />
         <WhatsAppButton locale={locale as Locale} />
+        <AnnouncementPopup locale={locale as Locale} dict={dict} />
       </body>
     </html>
   );

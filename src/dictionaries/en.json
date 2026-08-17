@@ -26,7 +26,15 @@
     "cities": "Cities",
     "consultations": "Consultations",
     "contact": "Contact",
-    "getInTouch": "Get in Touch"
+    "getInTouch": "Get in Touch",
+    "applyNow": "Apply Now"
+  },
+  "announcement": {
+    "eyebrow": "New Location",
+    "title": "Now Enrolling in Oman",
+    "body": "The British Academy is expanding to Muscat — join our first training courses in Oman.",
+    "cta": "View Courses in Muscat",
+    "dismiss": "Maybe later"
   },
   "hero": {
     "eyebrow": "A British Institution — Present in 30+ Countries",
