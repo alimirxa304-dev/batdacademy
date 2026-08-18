@@ -2,7 +2,6 @@ import { isLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { notFound } from "next/navigation";
 import { Hero } from "@/components/home/Hero";
-import { CourseSearch } from "@/components/home/CourseSearch";
 import { QuickCategoryStrip } from "@/components/home/QuickCategoryStrip";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { SpecializationGrid } from "@/components/home/SpecializationGrid";
@@ -26,7 +25,6 @@ export default async function HomePage({
   return (
     <>
       <Hero locale={l} dict={dict} />
-      <CourseSearch locale={l} dict={dict} />
       <div className="pt-10 sm:pt-14">
         <QuickCategoryStrip locale={l} dict={dict} />
       </div>

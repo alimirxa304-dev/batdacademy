@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { IconArrow } from "@/components/ui/Icons";
+import { specializations } from "@/lib/data/specializations";
+import { cities } from "@/lib/data/cities";
 
 const slides = [
   "/images/hero/slider-1.webp",
@@ -16,7 +19,10 @@ const slides = [
 ];
 
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const router = useRouter();
   const [active, setActive] = useState(0);
+  const [specialization, setSpecialization] = useState("");
+  const [city, setCity] = useState("");
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -25,11 +31,28 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     return () => clearInterval(id);
   }, []);
 
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (specialization) {
+      router.push(`/${locale}/courses/${specialization}${city ? `?city=${city}` : ""}`);
+    } else {
+      router.push(`/${locale}/courses${city ? `?city=${city}` : ""}`);
+    }
+  }
+
   const stats = [
     { value: "15+", label: dict.hero.statYears },
     { value: "30+", label: dict.hero.statCountries },
     { value: "50+", label: dict.hero.statCities },
     { value: "58", label: dict.hero.statCourses },
+  ];
+
+  const quickLinks = [
+    { href: "/courses", label: dict.nav.courses },
+    { href: "/diplomas", label: dict.nav.diplomas },
+    { href: "/masters", label: dict.nav.masters },
+    { href: "/cities", label: dict.nav.cities },
+    { href: "/consultations", label: dict.nav.consultations },
   ];
 
   return (
@@ -58,7 +81,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/10 to-navy/25" />
       </div>
 
-      <Container className="relative py-24 sm:py-32 lg:py-40">
+      <Container className="relative py-16 sm:py-24 lg:py-32">
         <div className="max-w-2xl">
           <span className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.16em] text-gold">
             <span className="h-[3px] w-8 bg-gold" />
@@ -74,28 +97,89 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75 sm:text-lg">
             {dict.hero.subtitle}
           </p>
-
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Button href={`/${locale}/courses`} variant="accent" size="lg">
-              {dict.hero.ctaPrimary}
-              <IconArrow className="h-4 w-4 rtl:rotate-180" />
-            </Button>
-            <Button href={`/${locale}/consultations`} variant="outline-paper" size="lg">
-              {dict.hero.ctaSecondary}
-            </Button>
-          </div>
-
-          <div className="mt-14 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/15 pt-7">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <p className="font-heading text-3xl text-white">{s.value}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wide text-white/60">{s.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
-        <div className="mt-12 flex items-center gap-2">
+        <form
+          onSubmit={onSubmit}
+          className="mx-auto mt-9 flex max-w-4xl flex-col gap-3 rounded-md border-2 border-navy bg-surface p-3 shadow-2xl sm:flex-row sm:items-center sm:p-2 lg:mx-0"
+        >
+          <label className="flex-1 px-3 py-2">
+            <span className="block text-[10px] font-semibold uppercase tracking-wide text-ink-soft">
+              {dict.search.specialization}
+            </span>
+            <select
+              value={specialization}
+              onChange={(e) => setSpecialization(e.target.value)}
+              className="w-full bg-transparent text-sm font-medium text-navy focus:outline-none"
+            >
+              <option value="">{dict.search.allCategories}</option>
+              {specializations.map((s) => (
+                <option key={s.slug} value={s.slug}>
+                  {locale === "ar" ? s.ar : s.en}
+                </option>
+              ))}
+            </select>
+          </label>
+          <span className="hidden h-8 w-px bg-line sm:block" />
+          <label className="flex-1 px-3 py-2">
+            <span className="block text-[10px] font-semibold uppercase tracking-wide text-ink-soft">
+              {dict.search.city}
+            </span>
+            <select
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="w-full bg-transparent text-sm font-medium text-navy focus:outline-none"
+            >
+              <option value="">{dict.common.selectCity}</option>
+              {cities.map((c) => (
+                <option key={c.slug} value={c.slug}>
+                  {locale === "ar" ? c.ar : c.en}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="submit"
+            className="rounded-sm bg-gold px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-gold/90"
+          >
+            {dict.search.submit}
+          </button>
+        </form>
+
+        <div className="mx-auto -mx-5 mt-4 flex max-w-4xl items-center gap-1 overflow-x-auto px-5 sm:mx-auto sm:px-0 lg:mx-0 lg:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {quickLinks.map((link, i) => (
+            <div key={link.href} className="flex shrink-0 items-center gap-1">
+              {i > 0 ? <span className="mx-2 text-white/30">|</span> : null}
+              <a
+                href={`/${locale}${link.href}`}
+                className="whitespace-nowrap text-[13px] font-medium text-white/70 transition-colors hover:text-gold"
+              >
+                {link.label}
+              </a>
+            </div>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-10 flex max-w-2xl flex-wrap items-center gap-4 lg:mx-0">
+          <Button href={`/${locale}/courses`} variant="accent" size="lg">
+            {dict.hero.ctaPrimary}
+            <IconArrow className="h-4 w-4 rtl:rotate-180" />
+          </Button>
+          <Button href={`/${locale}/consultations`} variant="outline-paper" size="lg">
+            {dict.hero.ctaSecondary}
+          </Button>
+        </div>
+
+        <div className="mx-auto mt-10 flex max-w-2xl flex-wrap gap-x-10 gap-y-5 border-t border-white/15 pt-7 lg:mx-0">
+          {stats.map((s) => (
+            <div key={s.label}>
+              <p className="font-heading text-3xl text-white">{s.value}</p>
+              <p className="mt-1 text-xs font-medium uppercase tracking-wide text-white/60">{s.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-12 flex max-w-2xl items-center gap-2 lg:mx-0">
           {slides.map((_, i) => (
             <button
               key={i}
