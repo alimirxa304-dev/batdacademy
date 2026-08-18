@@ -31,7 +31,7 @@ export default async function CitiesPage({
       <Container className="py-14">
         <div className="flex gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredCities.map((city) => (
-            <CityCard key={city.slug} city={city} locale={l} />
+            <CityCard key={city.slug} city={city} locale={l} dict={dict} />
           ))}
         </div>
       </Container>

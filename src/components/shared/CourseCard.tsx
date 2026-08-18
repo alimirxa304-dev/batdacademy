@@ -4,6 +4,7 @@ import type { Course } from "@/lib/data/courses";
 import { getCity } from "@/lib/data/cities";
 import { getSpecialization } from "@/lib/data/specializations";
 import { getGroup } from "@/lib/data/category-groups";
+import { getFeeTiers } from "@/lib/data/course-details";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import {
@@ -25,10 +26,12 @@ export function CourseCard({
   course,
   locale,
   dict,
+  discounted = false,
 }: {
   course: Course;
   locale: Locale;
   dict: Dictionary;
+  discounted?: boolean;
 }) {
   const city = getCity(course.citySlug);
   const spec = getSpecialization(course.specializationSlug);
@@ -95,7 +98,19 @@ export function CourseCard({
         </ul>
 
         <div className="mt-5 flex items-center justify-between border-t-2 border-navy/10 pt-5">
-          <span className="font-heading text-2xl text-navy">£{course.price.toLocaleString()}</span>
+          {discounted ? (
+            <span>
+              <span className="flex items-center gap-2">
+                <span className="text-xs text-ink-soft line-through">£{course.price.toLocaleString()}</span>
+                <span className="font-heading text-2xl text-gold">
+                  £{getFeeTiers(course.price)[2].price.toLocaleString()}
+                </span>
+              </span>
+              <span className="text-[11px] text-ink-soft">{dict.featured.groupRateLabel}</span>
+            </span>
+          ) : (
+            <span className="font-heading text-2xl text-navy">£{course.price.toLocaleString()}</span>
+          )}
           <span className="flex items-center gap-1.5 rounded-sm bg-navy px-4 py-2.5 text-xs font-bold text-white transition-colors group-hover:bg-gold">
             {dict.featured.register}
             <IconArrow className="h-3.5 w-3.5 rtl:rotate-180" />

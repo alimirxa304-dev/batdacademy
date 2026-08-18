@@ -25,7 +25,7 @@ export function CourseSearch({ locale, dict }: { locale: Locale; dict: Dictionar
     <div className="relative -mt-10 sm:-mt-14">
       <form
         onSubmit={onSubmit}
-        className="mx-auto flex max-w-4xl flex-col gap-3 rounded-md border-2 border-navy bg-surface p-3 shadow-xl shadow-navy/10 sm:flex-row sm:items-center sm:p-2"
+        className="mx-auto flex max-w-4xl flex-col gap-3 rounded-md border-2 border-navy bg-surface/90 p-3 shadow-xl shadow-navy/10 backdrop-blur-md sm:flex-row sm:items-center sm:p-2"
       >
         <label className="flex-1 px-3 py-2">
           <span className="block text-[10px] font-semibold uppercase tracking-wide text-ink-soft">

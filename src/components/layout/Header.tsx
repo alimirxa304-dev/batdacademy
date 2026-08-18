@@ -203,7 +203,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       </div>
 
       {mobileOpen ? (
-        <div className="fixed inset-0 z-[60] bg-navy/40 lg:hidden" onClick={() => setMobileOpen(false)}>
+        <div className="fixed inset-0 z-[60] bg-navy/40 backdrop-blur-sm lg:hidden" onClick={() => setMobileOpen(false)}>
           <div
             className="ms-auto h-full w-[85%] max-w-sm overflow-y-auto bg-paper p-6"
             onClick={(e) => e.stopPropagation()}

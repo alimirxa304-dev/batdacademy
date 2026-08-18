@@ -95,13 +95,18 @@
     "feeNote": "Note: price varies depending on the selected city.",
     "perSubscriber": "/ subscriber",
     "relatedCourses": "Related Courses",
-    "otherDates": "Other Available Dates"
+    "otherDates": "Other Available Dates",
+    "groupRateLabel": "Group rate, 3+ subscribers",
+    "allCourses": "All Courses",
+    "discountedCourses": "Discounted Courses",
+    "topCourses": "Top Courses"
   },
   "cities": {
     "title": "Courses by City",
     "subtitle": "Our clients' favourite destinations, chosen for their appeal and accessibility",
     "viewAll": "View All Cities",
-    "coursesIn": "Courses in"
+    "coursesIn": "Courses in",
+    "viewCourses": "View Courses"
   },
   "trust": {
     "title": "Why the British Academy",

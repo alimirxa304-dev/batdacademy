@@ -25,7 +25,7 @@ export function CityShowcase({ locale, dict }: { locale: Locale; dict: Dictionar
 
         <div className="mt-10 flex gap-4 overflow-x-auto px-5 pb-4 sm:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredCities.map((city) => (
-            <CityCard key={city.slug} city={city} locale={locale} />
+            <CityCard key={city.slug} city={city} locale={locale} dict={dict} />
           ))}
         </div>
       </Container>
