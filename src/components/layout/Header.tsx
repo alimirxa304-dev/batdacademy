@@ -60,19 +60,19 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       </div>
 
       <div className="border-b border-line-navy bg-paper/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-5 py-3 sm:px-8">
           <Link href={withLocale("")} className="flex items-center gap-3">
-            <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-navy p-1.5">
+            <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-navy p-1.5">
               <Image
                 src="/images/brand/logo-ba.webp"
                 alt={dict.meta.siteName}
                 fill
-                sizes="44px"
+                sizes="56px"
                 className="object-contain p-1"
               />
             </span>
             <span className="hidden flex-col leading-tight sm:flex">
-              <span className="font-heading text-base font-semibold text-navy">
+              <span className="font-heading whitespace-nowrap text-base font-semibold text-navy">
                 {dict.meta.siteNameShort}
               </span>
               <span className="text-[11px] uppercase tracking-[0.14em] text-ink-soft">
@@ -95,7 +95,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                     <Link
                       href={withLocale(item.href)}
                       className={cn(
-                        "flex items-center gap-1 rounded-sm px-3.5 py-2 text-[13.5px] font-medium transition-colors",
+                        "flex items-center gap-1 whitespace-nowrap rounded-sm px-2 py-2 text-[12.5px] font-medium transition-colors",
                         active ? "text-navy" : "text-ink-soft hover:text-navy"
                       )}
                     >
@@ -137,7 +137,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                     <Link
                       href={withLocale(item.href)}
                       className={cn(
-                        "flex items-center gap-1 rounded-sm px-3.5 py-2 text-[13.5px] font-medium transition-colors",
+                        "flex items-center gap-1 whitespace-nowrap rounded-sm px-2 py-2 text-[12.5px] font-medium transition-colors",
                         active ? "text-navy" : "text-ink-soft hover:text-navy"
                       )}
                     >
@@ -167,7 +167,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                   key={item.key}
                   href={withLocale(item.href)}
                   className={cn(
-                    "rounded-sm px-3.5 py-2 text-[13.5px] font-medium transition-colors",
+                    "whitespace-nowrap rounded-sm px-2 py-2 text-[12.5px] font-medium transition-colors",
                     active ? "text-navy" : "text-ink-soft hover:text-navy"
                   )}
                 >
@@ -180,13 +180,13 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <div className="flex items-center gap-2.5">
             <Link
               href={withLocale("/contact")}
-              className="hidden rounded-sm border-2 border-navy px-4 py-2.5 text-[13.5px] font-semibold text-navy transition-colors hover:bg-navy hover:text-white lg:inline-flex"
+              className="hidden whitespace-nowrap rounded-sm border-2 border-navy px-4 py-2.5 text-[13.5px] font-semibold text-navy transition-colors hover:bg-navy hover:text-white xl:inline-flex"
             >
               {dict.nav.getInTouch}
             </Link>
             <Link
               href={withLocale("/courses")}
-              className="hidden rounded-sm bg-gold px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors hover:bg-gold/90 sm:inline-flex"
+              className="hidden whitespace-nowrap rounded-sm bg-gold px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors hover:bg-gold/90 sm:inline-flex"
             >
               {dict.nav.applyNow}
             </Link>

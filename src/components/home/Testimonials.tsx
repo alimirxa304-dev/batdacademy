@@ -2,10 +2,8 @@ import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { IconQuote } from "@/components/ui/Icons";
+import { IconGraduationCap, IconQuote } from "@/components/ui/Icons";
 import { reviews } from "@/lib/data/reviews";
-
-const loop = [...reviews, ...reviews];
 
 export function Testimonials({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
@@ -18,37 +16,32 @@ export function Testimonials({ locale, dict }: { locale: Locale; dict: Dictionar
           subtitle={dict.testimonials.subtitle}
           className="mx-auto"
         />
-      </Container>
 
-      <div
-        dir="ltr"
-        className="group relative mt-12 overflow-hidden"
-        style={{
-          maskImage: "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
-        }}
-      >
-        <div
-          dir="ltr"
-          className="flex w-max animate-marquee items-stretch gap-5 [animation-duration:55s] group-hover:[animation-play-state:paused]"
-        >
-          {loop.map((review, i) => (
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {reviews.map((review, i) => (
             <div
               key={i}
-              dir={locale === "ar" ? "rtl" : "ltr"}
-              className="flex w-[340px] shrink-0 flex-col rounded-sm border-2 border-line-navy bg-surface p-7"
+              className="flex min-w-0 flex-col rounded-sm border-2 border-line-navy bg-surface p-6"
             >
-              <IconQuote className="h-7 w-7 shrink-0 text-gold" />
-              <p className="mt-4 flex-1 text-[14.5px] leading-relaxed text-ink-soft">
+              <div className="flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-tint text-navy">
+                  <IconGraduationCap className="h-5 w-5" />
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-bold text-navy">{review.context[locale]}</p>
+                  <p className="text-xs text-ink-soft">
+                    {locale === "ar" ? "مشارك في البرنامج" : "Programme Participant"}
+                  </p>
+                </div>
+              </div>
+              <IconQuote className="mt-4 h-5 w-5 shrink-0 text-gold" />
+              <p className="mt-2 flex-1 text-[14px] leading-relaxed text-ink-soft">
                 {review.quote[locale]}
-              </p>
-              <p className="mt-5 border-t-2 border-navy/10 pt-4 text-xs font-bold uppercase tracking-wide text-navy">
-                {review.context[locale]}
               </p>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
