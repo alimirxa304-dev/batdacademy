@@ -2,9 +2,10 @@ import { isLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { notFound } from "next/navigation";
 import { Hero } from "@/components/home/Hero";
+import { HeroStatsBanner } from "@/components/home/HeroStatsBanner";
 import { QuickCategoryStrip } from "@/components/home/QuickCategoryStrip";
 import { TrustStrip } from "@/components/home/TrustStrip";
-import { SpecializationGrid } from "@/components/home/SpecializationGrid";
+import { SpecializationBrowser } from "@/components/home/SpecializationBrowser";
 import { FeaturedCourses } from "@/components/home/FeaturedCourses";
 import { CityShowcase } from "@/components/home/CityShowcase";
 import { ClientsMarquee } from "@/components/home/ClientsMarquee";
@@ -25,10 +26,11 @@ export default async function HomePage({
   return (
     <>
       <Hero locale={l} dict={dict} />
+      <HeroStatsBanner locale={l} dict={dict} />
       <div className="pt-10 sm:pt-14">
         <QuickCategoryStrip locale={l} dict={dict} />
       </div>
-      <SpecializationGrid locale={l} dict={dict} />
+      <SpecializationBrowser locale={l} dict={dict} />
       <FeaturedCourses locale={l} dict={dict} />
       <TrustStrip locale={l} dict={dict} />
       <CityShowcase locale={l} dict={dict} />

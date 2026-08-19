@@ -40,13 +40,6 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     }
   }
 
-  const stats = [
-    { value: "15+", label: dict.hero.statYears },
-    { value: "30+", label: dict.hero.statCountries },
-    { value: "50+", label: dict.hero.statCities },
-    { value: "58", label: dict.hero.statCourses },
-  ];
-
   const quickLinks = [
     { href: "/courses", label: dict.nav.courses },
     { href: "/diplomas", label: dict.nav.diplomas },
@@ -170,16 +163,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </Button>
         </div>
 
-        <div className="mx-auto mt-10 flex max-w-2xl flex-wrap gap-x-10 gap-y-5 border-t border-white/15 pt-7 lg:mx-0">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <p className="font-heading text-3xl text-white">{s.value}</p>
-              <p className="mt-1 text-xs font-medium uppercase tracking-wide text-white/60">{s.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mx-auto mt-12 flex max-w-2xl items-center gap-2 lg:mx-0">
+        <div className="mx-auto mt-10 flex max-w-2xl items-center gap-2 lg:mx-0">
           {slides.map((_, i) => (
             <button
               key={i}
